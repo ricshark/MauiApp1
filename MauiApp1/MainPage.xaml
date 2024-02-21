@@ -6,7 +6,7 @@
     <ScrollView>
         <VerticalStackLayout
             Padding="30,0"
-            Spacing="25">
+            Spacing="25" InputTransparent="False">
             <Image
                 Source="dotnet_bot.png"
                 HeightRequest="185"
@@ -14,7 +14,7 @@
                 SemanticProperties.Description="dot net bot in a race car number eight" />
 
             <Label
-                Text="Hello, World!"
+                Text="Buscador de Endereço"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
 
@@ -24,21 +24,34 @@
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
 
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me" 
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Fill" />
-
-            <TextBlock x:Name="TimerDisplay" HorizontalAlignment="Left"/>
+            <Editor 
+                    x:Name="TxtCEP"
+                    Text="13026308"
+                    MaxLength="9"></Editor>
             
             <Button
-                x:Name="DateTimeBtn"
-                Text="Date Time view" 
-                SemanticProperties.Hint="View the current date time"
-                Clicked="DateTimeBtn_Clicked"
+                x:Name="PesquisarBtn"
+                Text="Pesquisar" 
+                SemanticProperties.Hint="Pesquisar"
+                Clicked="OnPesquisarClicked"
+                HorizontalOptions="Fill" />
+
+            <Button
+                x:Name="LimparBtn"
+                Text="Limpar" 
+                SemanticProperties.Hint="Limpar pesquisa"
+                Clicked="OnLimparClicked"
                 HorizontalOptions="Fill" /> 
+
+            <Editor 
+                x:Name="TxtRua"/>
+            <Editor 
+                x:Name="TxtBairro"/>
+            <Editor 
+                x:Name="TxtCidade"/>
+            <Editor 
+                x:Name="TxtUF"/>
+
         </VerticalStackLayout>
     </ScrollView>
 

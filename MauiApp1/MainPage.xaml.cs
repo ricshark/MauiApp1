@@ -1,30 +1,56 @@
-﻿namespace MauiApp1
+﻿using MauiApp1.Models;
+using Newtonsoft.Json;
+using System.Net.Http.Json;
+using System.Text;
+using System.Text.Json.Serialization;
+
+namespace MauiApp1
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        
 
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private async void OnPesquisarClicked(object sender, EventArgs e)
         {
-            count++;
+            
+            CEP cep = new CEP();
+                        
+            var client = new HttpClient();
+            var request = new HttpRequestMessage
+            {                
+                Method = HttpMethod.Get,
+                RequestUri = new Uri("https://viacep.com.br/ws/" + TxtCEP.Text + "/json")
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
+            };
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            var response = await client.SendAsync(request);
+            if (response.IsSuccessStatusCode)
+            {
+
+                cep = JsonConvert.DeserializeObject<CEP>(await response.Content.ReadAsStringAsync());                
+
+                TxtRua.Text = cep.logradouro;
+                TxtBairro.Text = cep.bairro;
+                TxtCidade.Text = cep.localidade;
+                TxtUF.Text = cep.uf;
+                
+            }
+          
         }
 
-        private void DateTimeBtn_Clicked(object sender, EventArgs e)
+        private void OnLimparClicked(object sender, EventArgs e)
         {
-            DateTimeBtn.Text = DateTime.Now.ToString();
+            TxtRua.Text = string.Empty;
+            TxtBairro.Text = string.Empty;
+            TxtCidade.Text = string.Empty;
+            TxtUF.Text = string.Empty;
         }
+
     }
 
 }
