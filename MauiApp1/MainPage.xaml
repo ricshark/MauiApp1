@@ -8,7 +8,7 @@
             Padding="30,0"
             Spacing="25" InputTransparent="False">
             <Image
-                Source="dotnet_bot.png"
+                Source="correios_logo.png"
                 HeightRequest="185"
                 Aspect="AspectFit"
                 SemanticProperties.Description="dot net bot in a race car number eight" />
@@ -19,29 +19,28 @@
                 SemanticProperties.HeadingLevel="Level1" />
 
             <Label
-                Text="Welcome to &#10;.NET Multi-platform App UI"
+                Text="Digite o CEP desejado"
                 Style="{StaticResource SubHeadline}"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
+                SemanticProperties.HeadingLevel="Level2" />
 
             <Editor 
                     x:Name="TxtCEP"
                     Text="13026308"
                     MaxLength="9"></Editor>
-            
+
             <Button
                 x:Name="PesquisarBtn"
                 Text="Pesquisar" 
                 SemanticProperties.Hint="Pesquisar"
                 Clicked="OnPesquisarClicked"
-                HorizontalOptions="Fill" />
+                />
 
             <Button
                 x:Name="LimparBtn"
                 Text="Limpar" 
                 SemanticProperties.Hint="Limpar pesquisa"
                 Clicked="OnLimparClicked"
-                HorizontalOptions="Fill" /> 
+                 />
 
             <Editor 
                 x:Name="TxtRua"/>
@@ -52,7 +51,10 @@
             <Editor 
                 x:Name="TxtUF"/>
 
+
         </VerticalStackLayout>
+
+        
     </ScrollView>
 
 </ContentPage>
