@@ -42,7 +42,9 @@
                 Clicked="OnLimparClicked"
                  />
 
-            <Editor 
+            
+
+                <Editor 
                 x:Name="TxtRua"/>
             <Editor 
                 x:Name="TxtBairro"/>
